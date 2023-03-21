@@ -1,8 +1,14 @@
 const puppeteer = require('puppeteer');
 const EventEmitter = require('events');
+const fs = require('fs');
+const path = require('path');
 
 // 「MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [process]」を回避する
 EventEmitter.defaultMaxListeners = 100;
+
+if (!fs.existsSync(path.join(__dirname, 'images'))) {
+    fs.mkdirSync(path.join(__dirname, 'images'));
+}
 
 async function takeScreenshot(url, index) {
     const browser = await puppeteer.launch();
@@ -15,6 +21,7 @@ async function takeScreenshot(url, index) {
 
 const urls = [
     // URLを入力してください
+    "https://qiita.com/POPOPON/items/964d0904e32cb38c9303"
 ];
 
 async function run() {
