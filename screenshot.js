@@ -21,7 +21,6 @@ async function takeScreenshot(url, index) {
 
 const urls = [
     // URLを入力してください
-    "https://qiita.com/POPOPON/items/964d0904e32cb38c9303"
 ];
 
 async function run() {
